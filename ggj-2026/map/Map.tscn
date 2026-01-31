@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://map"]
+
+[ext_resource type="PackedScene" uid="uid://coRG5_ryGQ7" id="0_id" path="Platforming_0.tscn"]
+[ext_resource type="PackedScene" uid="uid://c3YoSib7oQY" id="1_id" path="Background_1.tscn"]
+
+[node name="map" type="Node2D"]
+[node name="Background_1" parent="." instance=ExtResource("1_id")]
+[node name="Platforming_0" parent="." instance=ExtResource("0_id")]
