@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://uilwi3u55jla"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bjemy"]
+size = Vector2(50, 50)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_cdj5a"]
+
+[node name="spike" type="Area2D" groups=["spike"]]
+
+[node name="spike_collider" type="CollisionShape2D" parent="."]
+position = Vector2(26, 26)
+shape = SubResource("RectangleShape2D_bjemy")
+
+[node name="spike_sprite" type="Sprite2D" parent="spike_collider"]
+scale = Vector2(50, 50)
+texture = SubResource("CanvasTexture_cdj5a")
