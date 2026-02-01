@@ -1,10 +1,23 @@
-[gd_scene load_steps=6 format=3 uid="uid://cvvc86qkplwxo"]
+[gd_scene load_steps=17 format=3 uid="uid://cvvc86qkplwxo"]
 
 [ext_resource type="PackedScene" uid="uid://map" path="res://map/Map.tscn" id="1_02ptc"]
 [ext_resource type="PackedScene" uid="uid://mlhtfypk8xew" path="res://Scenes/player_character.tscn" id="2_2euac"]
 [ext_resource type="PackedScene" path="res://map/Platforming_0.tscn" id="3_2euac"]
 [ext_resource type="PackedScene" uid="uid://uilwi3u55jla" path="res://Scenes/spike.tscn" id="4_l0b83"]
 [ext_resource type="PackedScene" uid="uid://dy8xkygce0jt3" path="res://Scenes/checkpoint.tscn" id="5_fv6fd"]
+[ext_resource type="PackedScene" uid="uid://chsyyvb88on52" path="res://Scenes/file_ui.tscn" id="6_ynhaw"]
+[ext_resource type="Texture2D" uid="uid://ic6hhv7nkalv" path="res://Assets/art/ring.webp" id="7_wbb7p"]
+[ext_resource type="PackedScene" uid="uid://bvlnlwikdpmc5" path="res://Scenes/evidence.tscn" id="7_wr1pe"]
+[ext_resource type="Texture2D" uid="uid://bwp1e6jbv0uk8" path="res://Assets/art/medical form.webp" id="8_skkxs"]
+[ext_resource type="Texture2D" uid="uid://coi2n780qb02k" path="res://Assets/art/cider.webp" id="8_wr1pe"]
+[ext_resource type="PackedScene" uid="uid://0emus8fj3eyi" path="res://Scenes/mask_collectible.tscn" id="8_xoxc7"]
+[ext_resource type="Texture2D" uid="uid://c61lxolhtx3fg" path="res://Assets/art/scent.webp" id="9_a85a1"]
+[ext_resource type="Texture2D" uid="uid://dklpv724qeruv" path="res://Assets/art/newspaper.webp" id="10_4oq2l"]
+[ext_resource type="PackedScene" uid="uid://cdi0awa4w3shv" path="res://Scenes/detective.tscn" id="10_xoxc7"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ynhaw"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_wr1pe"]
 
 [node name="Main_Level" type="Node2D"]
 
@@ -29,52 +42,252 @@ color = Color(0.08235294, 0.07450981, 0.15294118, 1)
 [node name="checkpoint" parent="." instance=ExtResource("5_fv6fd")]
 position = Vector2(2311, 4006)
 
-[node name="spike_nodes" type="Node2D" parent="."]
+[node name="checkpoint2" parent="." instance=ExtResource("5_fv6fd")]
+position = Vector2(9557, 1412)
 
-[node name="spike" parent="spike_nodes" instance=ExtResource("4_l0b83")]
+[node name="checkpoint3" parent="." instance=ExtResource("5_fv6fd")]
+position = Vector2(9601, 4629)
+
+[node name="spikes_left" type="Node2D" parent="."]
+
+[node name="spike" parent="spikes_left" instance=ExtResource("4_l0b83")]
 position = Vector2(506, 4630)
 
-[node name="spike2" parent="spike_nodes" instance=ExtResource("4_l0b83")]
+[node name="spike2" parent="spikes_left" instance=ExtResource("4_l0b83")]
 position = Vector2(556, 4630)
 
-[node name="spike3" parent="spike_nodes" instance=ExtResource("4_l0b83")]
+[node name="spike3" parent="spikes_left" instance=ExtResource("4_l0b83")]
 position = Vector2(606, 4630)
 
-[node name="spike4" parent="spike_nodes" instance=ExtResource("4_l0b83")]
+[node name="spike4" parent="spikes_left" instance=ExtResource("4_l0b83")]
 position = Vector2(656, 4630)
 
-[node name="spike5" parent="spike_nodes" instance=ExtResource("4_l0b83")]
+[node name="spike5" parent="spikes_left" instance=ExtResource("4_l0b83")]
 position = Vector2(706, 4630)
 
-[node name="spike6" parent="spike_nodes" instance=ExtResource("4_l0b83")]
+[node name="spike6" parent="spikes_left" instance=ExtResource("4_l0b83")]
 position = Vector2(756, 4630)
 
-[node name="spike7" parent="spike_nodes" instance=ExtResource("4_l0b83")]
+[node name="spike7" parent="spikes_left" instance=ExtResource("4_l0b83")]
 position = Vector2(806, 4630)
 
-[node name="spike8" parent="spike_nodes" instance=ExtResource("4_l0b83")]
+[node name="spike8" parent="spikes_left" instance=ExtResource("4_l0b83")]
 position = Vector2(856, 4630)
 
-[node name="spike9" parent="spike_nodes" instance=ExtResource("4_l0b83")]
+[node name="spike9" parent="spikes_left" instance=ExtResource("4_l0b83")]
 position = Vector2(906, 4630)
 
-[node name="spike10" parent="spike_nodes" instance=ExtResource("4_l0b83")]
+[node name="spike10" parent="spikes_left" instance=ExtResource("4_l0b83")]
 position = Vector2(956, 4630)
 
-[node name="spike11" parent="spike_nodes" instance=ExtResource("4_l0b83")]
+[node name="spike11" parent="spikes_left" instance=ExtResource("4_l0b83")]
 position = Vector2(1006, 4630)
 
-[node name="spike12" parent="spike_nodes" instance=ExtResource("4_l0b83")]
+[node name="spike12" parent="spikes_left" instance=ExtResource("4_l0b83")]
 position = Vector2(1056, 4630)
 
-[node name="spike13" parent="spike_nodes" instance=ExtResource("4_l0b83")]
+[node name="spike13" parent="spikes_left" instance=ExtResource("4_l0b83")]
 position = Vector2(1106, 4630)
 
-[node name="spike14" parent="spike_nodes" instance=ExtResource("4_l0b83")]
+[node name="spike14" parent="spikes_left" instance=ExtResource("4_l0b83")]
 position = Vector2(1156, 4630)
 
-[node name="spike15" parent="spike_nodes" instance=ExtResource("4_l0b83")]
+[node name="spike15" parent="spikes_left" instance=ExtResource("4_l0b83")]
 position = Vector2(1206, 4630)
 
+[node name="spikes_upper" type="Node2D" parent="."]
+
+[node name="spike" parent="spikes_upper" instance=ExtResource("4_l0b83")]
+position = Vector2(9241, 3094)
+
+[node name="spike2" parent="spikes_upper" instance=ExtResource("4_l0b83")]
+position = Vector2(9861, 3092)
+
+[node name="spike3" parent="spikes_upper" instance=ExtResource("4_l0b83")]
+position = Vector2(9955, 2901)
+
+[node name="spike4" parent="spikes_upper" instance=ExtResource("4_l0b83")]
+position = Vector2(9146, 2901)
+
+[node name="spike5" parent="spikes_upper" instance=ExtResource("4_l0b83")]
+position = Vector2(9290, 2660)
+
+[node name="spike6" parent="spikes_upper" instance=ExtResource("4_l0b83")]
+position = Vector2(9816, 2660)
+
+[node name="spike7" parent="spikes_upper" instance=ExtResource("4_l0b83")]
+position = Vector2(9436, 2375)
+
+[node name="spike8" parent="spikes_upper" instance=ExtResource("4_l0b83")]
+position = Vector2(9672, 2375)
+
+[node name="spike9" parent="spikes_upper" instance=ExtResource("4_l0b83")]
+position = Vector2(9483, 1988)
+
+[node name="spike10" parent="spikes_upper" instance=ExtResource("4_l0b83")]
+position = Vector2(9620, 1988)
+
+[node name="spike11" parent="spikes_upper" instance=ExtResource("4_l0b83")]
+position = Vector2(9527, 1702)
+
+[node name="spike12" parent="spikes_upper" instance=ExtResource("4_l0b83")]
+position = Vector2(9578, 1702)
+
+[node name="spike13" parent="spikes_upper" instance=ExtResource("4_l0b83")]
+position = Vector2(9146, 1271)
+
+[node name="spike14" parent="spikes_upper" instance=ExtResource("4_l0b83")]
+position = Vector2(8950, 1414)
+
+[node name="spike15" parent="spikes_upper" instance=ExtResource("4_l0b83")]
+position = Vector2(8900, 1414)
+
+[node name="spike16" parent="spikes_upper" instance=ExtResource("4_l0b83")]
+position = Vector2(10154, 1415)
+
+[node name="spike17" parent="spikes_upper" instance=ExtResource("4_l0b83")]
+position = Vector2(10205, 1415)
+
+[node name="spike18" parent="spikes_upper" instance=ExtResource("4_l0b83")]
+position = Vector2(10256, 1415)
+
+[node name="spike19" parent="spikes_upper" instance=ExtResource("4_l0b83")]
+position = Vector2(10306, 1415)
+
+[node name="spike20" parent="spikes_upper" instance=ExtResource("4_l0b83")]
+position = Vector2(10357, 1415)
+
+[node name="spike21" parent="spikes_upper" instance=ExtResource("4_l0b83")]
+position = Vector2(10407, 1415)
+
+[node name="spike22" parent="spikes_upper" instance=ExtResource("4_l0b83")]
+position = Vector2(10458, 1415)
+
+[node name="spike23" parent="spikes_upper" instance=ExtResource("4_l0b83")]
+position = Vector2(10508, 1415)
+
+[node name="spikes_right" type="Node2D" parent="."]
+
+[node name="spike" parent="spikes_right" instance=ExtResource("4_l0b83")]
+position = Vector2(17257, 4631)
+
+[node name="spike2" parent="spikes_right" instance=ExtResource("4_l0b83")]
+position = Vector2(17307, 4631)
+
+[node name="spike3" parent="spikes_right" instance=ExtResource("4_l0b83")]
+position = Vector2(17358, 4631)
+
+[node name="spike4" parent="spikes_right" instance=ExtResource("4_l0b83")]
+position = Vector2(17409, 4631)
+
+[node name="spike5" parent="spikes_right" instance=ExtResource("4_l0b83")]
+position = Vector2(17461, 4631)
+
+[node name="spike6" parent="spikes_right" instance=ExtResource("4_l0b83")]
+position = Vector2(17511, 4631)
+
+[node name="spike7" parent="spikes_right" instance=ExtResource("4_l0b83")]
+position = Vector2(17561, 4631)
+
+[node name="spike8" parent="spikes_right" instance=ExtResource("4_l0b83")]
+position = Vector2(17611, 4631)
+
+[node name="spike9" parent="spikes_right" instance=ExtResource("4_l0b83")]
+position = Vector2(17661, 4631)
+
+[node name="spike10" parent="spikes_right" instance=ExtResource("4_l0b83")]
+position = Vector2(17711, 4631)
+
+[node name="spike11" parent="spikes_right" instance=ExtResource("4_l0b83")]
+position = Vector2(17761, 4631)
+
+[node name="spike12" parent="spikes_right" instance=ExtResource("4_l0b83")]
+position = Vector2(17811, 4631)
+
+[node name="spike13" parent="spikes_right" instance=ExtResource("4_l0b83")]
+position = Vector2(17861, 4631)
+
+[node name="spike14" parent="spikes_right" instance=ExtResource("4_l0b83")]
+position = Vector2(17911, 4631)
+
+[node name="spike15" parent="spikes_right" instance=ExtResource("4_l0b83")]
+position = Vector2(17962, 4631)
+
+[node name="spike16" parent="spikes_right" instance=ExtResource("4_l0b83")]
+position = Vector2(18013, 4631)
+
+[node name="spike17" parent="spikes_right" instance=ExtResource("4_l0b83")]
+position = Vector2(18063, 4631)
+
+[node name="spike18" parent="spikes_right" instance=ExtResource("4_l0b83")]
+position = Vector2(18113, 4631)
+
+[node name="spike19" parent="spikes_right" instance=ExtResource("4_l0b83")]
+position = Vector2(18163, 4631)
+
+[node name="spike20" parent="spikes_right" instance=ExtResource("4_l0b83")]
+position = Vector2(18213, 4631)
+
+[node name="spike21" parent="spikes_right" instance=ExtResource("4_l0b83")]
+position = Vector2(18263, 4631)
+
+[node name="spike22" parent="spikes_right" instance=ExtResource("4_l0b83")]
+position = Vector2(18313, 4631)
+
+[node name="spike23" parent="spikes_right" instance=ExtResource("4_l0b83")]
+position = Vector2(18363, 4631)
+
+[node name="spike24" parent="spikes_right" instance=ExtResource("4_l0b83")]
+position = Vector2(18413, 4631)
+
+[node name="spike25" parent="spikes_right" instance=ExtResource("4_l0b83")]
+position = Vector2(18463, 4631)
+
+[node name="spike26" parent="spikes_right" instance=ExtResource("4_l0b83")]
+position = Vector2(18513, 4631)
+
+[node name="spike27" parent="spikes_right" instance=ExtResource("4_l0b83")]
+position = Vector2(18562, 4631)
+
+[node name="collectible_evidence" parent="." instance=ExtResource("7_wr1pe")]
+position = Vector2(8733, 448)
+evidence_texture = ExtResource("8_wr1pe")
+evidence_id = 3
+
+[node name="collectible_evidence2" parent="." instance=ExtResource("7_wr1pe")]
+position = Vector2(551, 4004)
+evidence_texture = ExtResource("7_wbb7p")
+evidence_id = 1
+
+[node name="collectible_evidence3" parent="." instance=ExtResource("7_wr1pe")]
+position = Vector2(18327, 3766)
+evidence_texture = ExtResource("8_skkxs")
+evidence_id = 5
+
+[node name="collectible_evidence4" parent="." instance=ExtResource("7_wr1pe")]
+position = Vector2(2496, 4005)
+evidence_texture = ExtResource("9_a85a1")
+evidence_id = 2
+
+[node name="collectible_evidence5" parent="." instance=ExtResource("7_wr1pe")]
+position = Vector2(16612, 3955)
+evidence_texture = ExtResource("10_4oq2l")
+evidence_id = 4
+
+[node name="mask_collectible" parent="." instance=ExtResource("8_xoxc7")]
+position = Vector2(5060, 4191)
+mask_id = 3
+texture_input = SubResource("CanvasTexture_ynhaw")
+
+[node name="mask_collectible2" parent="." instance=ExtResource("8_xoxc7")]
+position = Vector2(13944, 4050)
+mask_id = 2
+texture_input = SubResource("CanvasTexture_wr1pe")
+
+[node name="detective" parent="." instance=ExtResource("10_xoxc7")]
+position = Vector2(9840, 4629)
+
 [node name="Player_Character" parent="." instance=ExtResource("2_2euac")]
-position = Vector2(8600, 420)
+position = Vector2(9706, 4628)
+
+[node name="file_ui" parent="." instance=ExtResource("6_ynhaw")]

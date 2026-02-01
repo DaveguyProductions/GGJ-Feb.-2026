@@ -2,6 +2,7 @@ extends Sprite2D
 
 @export var suspect_name: String
 @export var suspect_image: Texture
+@export var file_id: int
 
 const plot1_path = "res://info docs/plot1.json"
 # Called when the node enters the scene tree for the first time.
@@ -12,14 +13,19 @@ func _ready() -> void:
 		$photo_frame/photo_bg/suspect.texture = suspect_image
 		if suspect_name == "Marilyn Munias":
 			$timeline.text = suspect_data["timeline_marilyn"]
-		elif suspect_name == "Sebastian":
+			$notes.text = suspect_data["notes_marilyn"]
+		elif suspect_name == "Sebastian Serrano":
 			$timeline.text = suspect_data["timeline_sebastian"]
-		elif suspect_name == "Roman":
+			$notes.text = suspect_data["notes_sebastian"]
+		elif suspect_name == "Roman Rollins":
 			$timeline.text = suspect_data["timeline_roman"]
-		elif suspect_name == "Victoria":
+			$notes.text = suspect_data["notes_roman"]
+		elif suspect_name == "Victoria Verrat":
 			$timeline.text = suspect_data["timeline_victoria"]
+			$notes.text = suspect_data["notes_victoria"]
 		elif suspect_name == "Mr. Brookesia":
 			$timeline.text = suspect_data["timeline_b"]
+			$notes.text = suspect_data["notes_b"]
 	else:
 		print("null")
 

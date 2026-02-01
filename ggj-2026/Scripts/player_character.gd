@@ -14,13 +14,16 @@ const COOLDOWN_TIME = 5.0
 var cooldown = false
 var temp_time = 0
 
-var mask_list = [1,2,3]
+var mask_list: Array = [1]
+var mask_index: int = 0
 
 # 1 = dash, 2 = double jump, 3 = teleport
 var curr_mask = 1
 
 var mask_just_switched = false
 
+func _ready():
+	globals.checkpoint_pos = position
 	
 func _physics_process(delta: float) -> void:
 	# Add the gravity. 
@@ -83,19 +86,10 @@ func _physics_process(delta: float) -> void:
 				cooldown = true
 	
 	# Handle mask switching
-	var list_position = curr_mask - 1
 	if Input.is_action_just_pressed("ui_left"):
-		curr_mask = mask_list[list_position - 1]
-		mask_just_switched = true
-		print(curr_mask)
+		switch_mask_left()
 	if Input.is_action_just_pressed("ui_right"):
-		if curr_mask == 3:
-			curr_mask = 1
-			print(curr_mask)
-		else:
-			curr_mask = mask_list[list_position + 1]
-			mask_just_switched = true
-			print(curr_mask)
+		switch_mask_right()
 			
 	# Handle Camera when in the attic
 	if self.position.y < 1500:
@@ -106,3 +100,23 @@ func _physics_process(delta: float) -> void:
 		$Camera2D.limit_left = 0
 
 	move_and_slide()
+	
+func add_mask(mask_id):
+	mask_list.append(mask_id)
+	mask_list.sort()
+	
+func switch_mask_right():
+	if mask_index < mask_list.size() - 1:
+		mask_index += 1
+	else:
+		mask_index = 0
+	curr_mask = mask_list[mask_index]
+	mask_just_switched = true
+
+func switch_mask_left():
+	if mask_index > 0:
+		mask_index -= 1
+	else:
+		mask_index = mask_list.size() - 1
+	curr_mask = mask_list[mask_index]
+	mask_just_switched = true

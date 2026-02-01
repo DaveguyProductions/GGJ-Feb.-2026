@@ -1,0 +1,101 @@
+[gd_scene load_steps=15 format=3 uid="uid://chsyyvb88on52"]
+
+[ext_resource type="Script" uid="uid://dke01fe4oje68" path="res://Scripts/file_ui.gd" id="1_cooj5"]
+[ext_resource type="PackedScene" uid="uid://rl6t6fdt15ff" path="res://Scenes/info_folder.tscn" id="1_tgll1"]
+[ext_resource type="Texture2D" uid="uid://c278uuktvjlqr" path="res://Assets/art/portrait_marilyn.webp" id="2_ur2ok"]
+[ext_resource type="Texture2D" uid="uid://cu10xu8w64s8h" path="res://Assets/art/portrait_serrano.webp" id="3_vfh6b"]
+[ext_resource type="Texture2D" uid="uid://b8wclq2gk088" path="res://Assets/art/portrait_roman.webp" id="4_cooj5"]
+[ext_resource type="Texture2D" uid="uid://ctftf0wgsnie5" path="res://Assets/art/portrait_victoria.webp" id="5_u50to"]
+[ext_resource type="Texture2D" uid="uid://cqgatix0bnsic" path="res://Assets/art/portrait_brookesia.webp" id="6_8ryis"]
+[ext_resource type="Texture2D" uid="uid://n6rsftqmfr1h" path="res://Assets/art/button left.png" id="7_vfh6b"]
+[ext_resource type="Texture2D" uid="uid://e7ru6tr6d4rq" path="res://Assets/art/button right.png" id="8_cooj5"]
+[ext_resource type="FontFile" uid="uid://b52chdl5ratcq" path="res://Assets/fonts/monogram.ttf" id="10_u50to"]
+[ext_resource type="StyleBox" uid="uid://di5shyxfgck2n" path="res://themes/file_ui.tres" id="11_8ryis"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u50to"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sdps1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8ryis"]
+
+[node name="file_ui" type="CanvasLayer"]
+script = ExtResource("1_cooj5")
+
+[node name="info_folder1" parent="." instance=ExtResource("1_tgll1")]
+position = Vector2(576, 315)
+scale = Vector2(1.5, 1.5)
+suspect_name = "Marilyn Munias"
+suspect_image = ExtResource("2_ur2ok")
+
+[node name="info_folder2" parent="." instance=ExtResource("1_tgll1")]
+visible = false
+position = Vector2(576, 315)
+scale = Vector2(1.5, 1.5)
+suspect_name = "Sebastian Serrano"
+suspect_image = ExtResource("3_vfh6b")
+file_id = 1
+
+[node name="info_folder3" parent="." instance=ExtResource("1_tgll1")]
+visible = false
+position = Vector2(576, 315)
+scale = Vector2(1.5, 1.5)
+suspect_name = "Roman Rollins"
+suspect_image = ExtResource("4_cooj5")
+file_id = 2
+
+[node name="info_folder4" parent="." instance=ExtResource("1_tgll1")]
+visible = false
+position = Vector2(576, 315)
+scale = Vector2(1.5, 1.5)
+suspect_name = "Victoria Verrat"
+suspect_image = ExtResource("5_u50to")
+file_id = 3
+
+[node name="info_folder5" parent="." instance=ExtResource("1_tgll1")]
+visible = false
+position = Vector2(576, 315)
+scale = Vector2(1.5, 1.5)
+suspect_name = "Mr.Brookesia"
+suspect_image = ExtResource("6_8ryis")
+file_id = 4
+
+[node name="left" type="Sprite2D" parent="."]
+position = Vector2(100, 320)
+texture = ExtResource("7_vfh6b")
+
+[node name="right" type="Sprite2D" parent="."]
+position = Vector2(1020, 320)
+texture = ExtResource("8_cooj5")
+
+[node name="button_left" type="Button" parent="."]
+offset_left = 81.0
+offset_top = 285.0
+offset_right = 124.0
+offset_bottom = 353.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_u50to")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_sdps1")
+
+[node name="button_right" type="Button" parent="."]
+offset_left = 1001.0
+offset_top = 284.0
+offset_right = 1044.0
+offset_bottom = 352.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8ryis")
+
+[node name="close" type="Button" parent="."]
+texture_filter = 1
+offset_left = 40.0
+offset_top = 25.0
+offset_right = 159.0
+offset_bottom = 83.0
+theme_override_colors/font_color = Color(0.23137255, 0.23137255, 0.23137255, 1)
+theme_override_fonts/font = ExtResource("10_u50to")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = ExtResource("11_8ryis")
+theme_override_styles/pressed = ExtResource("11_8ryis")
+theme_override_styles/hover = ExtResource("11_8ryis")
+text = "Close"
+
+[connection signal="pressed" from="button_left" to="." method="_on_button_left_pressed"]
+[connection signal="pressed" from="button_right" to="." method="_on_button_right_pressed"]
+[connection signal="pressed" from="close" to="." method="_on_close_pressed"]
