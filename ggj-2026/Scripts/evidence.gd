@@ -15,5 +15,6 @@ func _process(delta: float) -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		globals.evidence_list.erase(evidence_id)
+		body.show_dialogue(evidence_id)
 		print(globals.evidence_list.size())
 		queue_free()

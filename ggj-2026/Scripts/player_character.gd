@@ -22,11 +22,38 @@ var curr_mask = 1
 
 var mask_just_switched = false
 
+var currently_near: String
+
 func _ready():
 	globals.checkpoint_pos = position
 	
+func _process(delta:float):
+	hide_all_masks()
+	if curr_mask == 1:
+		$dash.show()
+	if curr_mask == 2:
+		$double_jump.show()
+	if curr_mask == 3:
+		$tp.show()
+	if Input.is_action_just_pressed("choose_suspect") and globals.near_suspect == true:
+		if currently_near == "Victoria":
+			get_tree().change_scene_to_file("res://Scenes/you_win.tscn")
+		else:
+			get_tree().change_scene_to_file("res://Scenes/you_lose.tscn")
+	
 func _physics_process(delta: float) -> void:
 	# Add the gravity. 
+	if velocity.x < 0:
+		$Sprite2D.flip_h = true
+		$dash.flip_h = true
+		$double_jump.flip_h = true
+		$tp.flip_h = true
+	if velocity.x > 0:
+		$Sprite2D.flip_h = false
+		$dash.flip_h = false
+		$double_jump.flip_h = false
+		$tp.flip_h = false
+	
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 		
@@ -120,3 +147,33 @@ func switch_mask_left():
 		mask_index = mask_list.size() - 1
 	curr_mask = mask_list[mask_index]
 	mask_just_switched = true
+
+func show_dialogue(id):
+	$speech_bubble.show()
+	$speech_text.show()
+	if id == 1:
+		$speech_text.text = "A ring? The engraving says V.V."
+	if id == 2:
+		$speech_text.text = "Is that apple I smell?"
+	if id == 3:
+		$speech_text.text = "An empty apple cider bottle?"
+	if id == 4:
+		$speech_text.text = "Who's Vivian? Foul play involved in death?"
+	if id == 5:
+		$speech_text.text = "Vincent's medical history. He had an apple allergy?"
+	$Timer.start()
+
+func _on_timer_timeout() -> void:
+	$speech_bubble.hide()
+	$speech_text.hide()
+	
+func hide_all_masks():
+	$dash.hide()
+	$double_jump.hide()
+	$tp.hide()
+
+func current_suspect(name):
+	$speech_bubble.show()
+	$speech_text2.show()
+	$speech_text2.text = name
+	currently_near = name

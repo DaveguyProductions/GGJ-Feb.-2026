@@ -1,8 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://dt4lu0u0rkdkm"]
+[gd_scene load_steps=15 format=3 uid="uid://dt4lu0u0rkdkm"]
 
-[ext_resource type="Texture2D" uid="uid://wogkoxgx2cuo" path="res://Assets/art/Menu_Button.png" id="1_28flt"]
-[ext_resource type="Script" uid="uid://ccf72tosejmpi" path="res://Scripts/main_menu.gd" id="1_48xlc"]
+[ext_resource type="Texture2D" uid="uid://b3crx01oagjxg" path="res://Assets/art/Menu_Button.png" id="1_28flt"]
+[ext_resource type="Script" uid="uid://ti1bg83av2qr" path="res://Scripts/main_menu.gd" id="1_48xlc"]
 [ext_resource type="FontFile" uid="uid://b52chdl5ratcq" path="res://Assets/fonts/monogram.ttf" id="2_1ehe0"]
+[ext_resource type="Texture2D" uid="uid://dcd4o1b37gcoa" path="res://Assets/art/faced.webp" id="4_opfnp"]
+[ext_resource type="Texture2D" uid="uid://bhu2p1sbqo0rd" path="res://Assets/art/with the.webp" id="5_cp0ys"]
+[ext_resource type="Texture2D" uid="uid://ennf3qbmrst4" path="res://Assets/art/truth.webp" id="6_yhxw7"]
+[ext_resource type="AudioStream" uid="uid://duw0k7xadypfo" path="res://sounds/Button_Hover.mp3" id="7_cp0ys"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_trj04"]
 
@@ -72,15 +76,32 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
+[node name="title" type="Node2D" parent="."]
+
+[node name="faced" type="Sprite2D" parent="title"]
+position = Vector2(613, 101)
+scale = Vector2(2.0937498, 2.2864583)
+texture = ExtResource("4_opfnp")
+
+[node name="with the" type="Sprite2D" parent="title"]
+position = Vector2(572, 136)
+scale = Vector2(1.1484375, 1.25)
+texture = ExtResource("5_cp0ys")
+
+[node name="truth" type="Sprite2D" parent="title"]
+position = Vector2(565, 201.00002)
+scale = Vector2(1.6015625, 1.90625)
+texture = ExtResource("6_yhxw7")
+
 [node name="Credit_Screen" type="Node2D" parent="."]
 visible = false
 
 [node name="Back" type="Button" parent="Credit_Screen"]
 texture_filter = 1
-offset_left = 291.0
-offset_top = 441.0
-offset_right = 862.0
-offset_bottom = 604.0
+offset_left = 285.0
+offset_top = 457.0
+offset_right = 856.0
+offset_bottom = 620.0
 theme_override_fonts/font = ExtResource("2_1ehe0")
 theme_override_font_sizes/font_size = 75
 theme_override_styles/focus = SubResource("StyleBoxEmpty_yhxw7")
@@ -93,18 +114,69 @@ expand_icon = true
 [node name="Credits_Names" type="RichTextLabel" parent="Credit_Screen"]
 texture_filter = 1
 offset_right = 1147.0
-offset_bottom = 431.0
+offset_bottom = 439.0
 theme_override_fonts/normal_font = ExtResource("2_1ehe0")
-theme_override_font_sizes/normal_font_size = 75
+theme_override_font_sizes/normal_font_size = 65
 text = "Art: Emma Brandt and Owen Young
-
 Programming Devin Reynolds and Wyatt Bayless
+Level Design:  Colin Sullivan
+www.pixilart.com for assets
+www.craftpix.net/freebies/free-medieval-tileset-pixel-art-pack for tilemap
+BeepBox for sounds
+www.spritefusion.com for level design work
 
-Level Design: 
-Colin Sullivan
 "
 
+[node name="info_dump" type="Node2D" parent="."]
+visible = false
+
+[node name="bg" type="ColorRect" parent="info_dump"]
+offset_left = 84.0
+offset_top = 60.0
+offset_right = 1063.0
+offset_bottom = 595.0
+color = Color(0.6039216, 0.08235294, 0.8352941, 1)
+
+[node name="text" type="RichTextLabel" parent="info_dump"]
+texture_filter = 1
+offset_left = 115.0
+offset_top = 92.0
+offset_right = 1034.0
+offset_bottom = 561.0
+theme_override_colors/default_color = Color(0.88941336, 0.88941324, 1.540184e-06, 1)
+theme_override_fonts/normal_font = ExtResource("2_1ehe0")
+theme_override_font_sizes/normal_font_size = 50
+text = "Vincent Verrat was found dead in his bedroom while a masquerade party went on downstairs. There are no obvious injuries, but authorities still suspect foul play. They checked the rooms, but things still may have been missed. Parkour through the left, right, and upper hallways and look for clues while the lead detective gathers information from the suspects. Once that is done, review all the clues to solve the murder of Vincent Verrat."
+
+[node name="start_game" type="Button" parent="info_dump"]
+texture_filter = 1
+offset_left = 439.0
+offset_top = 494.0
+offset_right = 686.0
+offset_bottom = 606.0
+theme_override_fonts/font = ExtResource("2_1ehe0")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_1ehe0")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_ce3w2")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_n45e2")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_opfnp")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_cp0ys")
+text = "Play"
+icon = ExtResource("1_28flt")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="button_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_cp0ys")
+
+[connection signal="mouse_entered" from="Button_Manager/Credits" to="." method="_on_credits_mouse_entered"]
 [connection signal="pressed" from="Button_Manager/Credits" to="." method="_on_credits_pressed"]
+[connection signal="mouse_entered" from="Button_Manager/Quit" to="." method="_on_quit_mouse_entered"]
 [connection signal="pressed" from="Button_Manager/Quit" to="." method="_on_quit_pressed"]
+[connection signal="mouse_entered" from="Button_Manager/Start" to="." method="_on_start_mouse_entered"]
 [connection signal="pressed" from="Button_Manager/Start" to="." method="_on_start_pressed"]
+[connection signal="mouse_entered" from="Credit_Screen/Back" to="." method="_on_back_mouse_entered"]
 [connection signal="pressed" from="Credit_Screen/Back" to="." method="_on_back_pressed"]
+[connection signal="mouse_entered" from="info_dump/start_game" to="." method="_on_start_game_mouse_entered"]
+[connection signal="pressed" from="info_dump/start_game" to="." method="_on_start_game_pressed"]

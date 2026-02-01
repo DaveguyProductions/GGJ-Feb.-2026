@@ -2,12 +2,11 @@
 
 [ext_resource type="Script" uid="uid://bh42l1y4jmc2o" path="res://Scripts/detective.gd" id="1_5vuio"]
 [ext_resource type="Texture2D" uid="uid://bnokhiltk4x3q" path="res://Assets/art/speech_bubble.png" id="2_8u120"]
+[ext_resource type="Texture2D" uid="uid://cxox3g3i07iox" path="res://Assets/art/sprite_detective.webp" id="2_w7bri"]
 [ext_resource type="FontFile" uid="uid://b52chdl5ratcq" path="res://Assets/fonts/monogram.ttf" id="3_dmdfp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jxt61"]
 size = Vector2(80, 50)
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_jxt61"]
 
 [node name="detective" type="Area2D" groups=["detective"]]
 script = ExtResource("1_5vuio")
@@ -16,9 +15,10 @@ script = ExtResource("1_5vuio")
 shape = SubResource("RectangleShape2D_jxt61")
 
 [node name="detective_sprite" type="Sprite2D" parent="dectective_collider"]
-position = Vector2(7.1525574e-07, -9.536743e-07)
-scale = Vector2(42, 50)
-texture = SubResource("CanvasTexture_jxt61")
+texture_filter = 1
+position = Vector2(0, -10)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_w7bri")
 
 [node name="speech_bubble" type="Sprite2D" parent="."]
 visible = false

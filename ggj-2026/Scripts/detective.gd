@@ -4,11 +4,6 @@ extends Area2D
 func _ready() -> void:
 	pass # Replace with function body.
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("tester_button"):
-		globals.evidence_list.clear()
-
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		if globals.evidence_list.size() == 0:

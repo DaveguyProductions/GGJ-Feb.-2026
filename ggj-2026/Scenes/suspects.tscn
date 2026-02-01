@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://c0r73plriilk3"]
+
+[ext_resource type="Script" uid="uid://c5yeholvfman" path="res://Scripts/suspects.gd" id="1_bm24t"]
+[ext_resource type="Texture2D" uid="uid://bnokhiltk4x3q" path="res://Assets/art/speech_bubble.png" id="2_k85ti"]
+[ext_resource type="FontFile" uid="uid://b52chdl5ratcq" path="res://Assets/fonts/monogram.ttf" id="3_h50cg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jxt61"]
+size = Vector2(80, 50)
+
+[node name="suspect" type="Area2D" groups=["suspect"]]
+script = ExtResource("1_bm24t")
+
+[node name="suspect_collider" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_jxt61")
+
+[node name="suspect_sprite" type="Sprite2D" parent="suspect_collider"]
+texture_filter = 1
+position = Vector2(0, -10)
+scale = Vector2(1.5, 1.5)
+flip_h = true
+
+[node name="speech_bubble" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(86.437515, -55.125)
+scale = Vector2(1.3242185, 1.143229)
+texture = ExtResource("2_k85ti")
+
+[node name="speech_text" type="RichTextLabel" parent="speech_bubble"]
+offset_left = -22.230103
+offset_top = -29.630983
+offset_right = 32.896748
+offset_bottom = 7.981779
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_h50cg")
+text = "Want my notes?"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -1,10 +1,12 @@
-[gd_scene load_steps=17 format=3 uid="uid://cvvc86qkplwxo"]
+[gd_scene load_steps=24 format=3 uid="uid://cvvc86qkplwxo"]
 
 [ext_resource type="PackedScene" uid="uid://map" path="res://map/Map.tscn" id="1_02ptc"]
 [ext_resource type="PackedScene" uid="uid://mlhtfypk8xew" path="res://Scenes/player_character.tscn" id="2_2euac"]
 [ext_resource type="PackedScene" path="res://map/Platforming_0.tscn" id="3_2euac"]
 [ext_resource type="PackedScene" uid="uid://uilwi3u55jla" path="res://Scenes/spike.tscn" id="4_l0b83"]
 [ext_resource type="PackedScene" uid="uid://dy8xkygce0jt3" path="res://Scenes/checkpoint.tscn" id="5_fv6fd"]
+[ext_resource type="Texture2D" uid="uid://chxa0l436bnoc" path="res://Assets/art/Dinner_Table.png" id="5_yh28y"]
+[ext_resource type="Texture2D" uid="uid://75ntychvfb2h" path="res://Assets/art/Knight_Armour.png" id="6_nl5fi"]
 [ext_resource type="PackedScene" uid="uid://chsyyvb88on52" path="res://Scenes/file_ui.tscn" id="6_ynhaw"]
 [ext_resource type="Texture2D" uid="uid://ic6hhv7nkalv" path="res://Assets/art/ring.webp" id="7_wbb7p"]
 [ext_resource type="PackedScene" uid="uid://bvlnlwikdpmc5" path="res://Scenes/evidence.tscn" id="7_wr1pe"]
@@ -14,10 +16,13 @@
 [ext_resource type="Texture2D" uid="uid://c61lxolhtx3fg" path="res://Assets/art/scent.webp" id="9_a85a1"]
 [ext_resource type="Texture2D" uid="uid://dklpv724qeruv" path="res://Assets/art/newspaper.webp" id="10_4oq2l"]
 [ext_resource type="PackedScene" uid="uid://cdi0awa4w3shv" path="res://Scenes/detective.tscn" id="10_xoxc7"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_ynhaw"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_wr1pe"]
+[ext_resource type="Texture2D" uid="uid://ba8actvtxvqr5" path="res://Assets/art/yinyang mask.webp" id="12_4oq2l"]
+[ext_resource type="Texture2D" uid="uid://wlrrd51sb7be" path="res://Assets/art/black_mask.webp" id="13_4oq2l"]
+[ext_resource type="PackedScene" uid="uid://c0r73plriilk3" path="res://Scenes/suspects.tscn" id="15_6jx1q"]
+[ext_resource type="AudioStream" uid="uid://st7u5c7g6ov1" path="res://sounds/Level_Song.mp3" id="15_skkxs"]
+[ext_resource type="Texture2D" uid="uid://ba7weyqholm7i" path="res://Assets/art/roman_sprite.webp" id="17_nl5fi"]
+[ext_resource type="Texture2D" uid="uid://i433lm3k4opd" path="res://Assets/art/sprite_serrano.webp" id="18_iugvy"]
+[ext_resource type="Texture2D" uid="uid://cmmvjfyy0nd34" path="res://Assets/art/sprite_victoria.webp" id="19_luevi"]
 
 [node name="Main_Level" type="Node2D"]
 
@@ -249,6 +254,38 @@ position = Vector2(18513, 4631)
 [node name="spike27" parent="spikes_right" instance=ExtResource("4_l0b83")]
 position = Vector2(18562, 4631)
 
+[node name="table" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(9986, 4611)
+scale = Vector2(1.3150027, 1.8899981)
+texture = ExtResource("5_yh28y")
+
+[node name="armor_container" type="Node2D" parent="."]
+
+[node name="armor" type="Sprite2D" parent="armor_container"]
+texture_filter = 1
+position = Vector2(10390, 4610)
+scale = Vector2(1.56, 1.55)
+texture = ExtResource("6_nl5fi")
+
+[node name="armor2" type="Sprite2D" parent="armor_container"]
+texture_filter = 1
+position = Vector2(16745.998, 4611)
+scale = Vector2(1.56, 1.55)
+texture = ExtResource("6_nl5fi")
+
+[node name="armor3" type="Sprite2D" parent="armor_container"]
+texture_filter = 1
+position = Vector2(8658, 1391)
+scale = Vector2(1.56, 1.55)
+texture = ExtResource("6_nl5fi")
+
+[node name="armor4" type="Sprite2D" parent="armor_container"]
+texture_filter = 1
+position = Vector2(2352, 4610)
+scale = Vector2(1.56, 1.55)
+texture = ExtResource("6_nl5fi")
+
 [node name="collectible_evidence" parent="." instance=ExtResource("7_wr1pe")]
 position = Vector2(8733, 448)
 evidence_texture = ExtResource("8_wr1pe")
@@ -277,17 +314,44 @@ evidence_id = 4
 [node name="mask_collectible" parent="." instance=ExtResource("8_xoxc7")]
 position = Vector2(5060, 4191)
 mask_id = 3
-texture_input = SubResource("CanvasTexture_ynhaw")
+texture_input = ExtResource("12_4oq2l")
 
 [node name="mask_collectible2" parent="." instance=ExtResource("8_xoxc7")]
 position = Vector2(13944, 4050)
 mask_id = 2
-texture_input = SubResource("CanvasTexture_wr1pe")
+texture_input = ExtResource("13_4oq2l")
 
 [node name="detective" parent="." instance=ExtResource("10_xoxc7")]
 position = Vector2(9840, 4629)
 
+[node name="suspect" parent="." instance=ExtResource("15_6jx1q")]
+position = Vector2(9102, 4631)
+suspect_name = "Marilyn"
+
+[node name="suspect2" parent="." instance=ExtResource("15_6jx1q")]
+position = Vector2(9195, 4631)
+suspect_name = "Sebastian"
+suspect_texture = ExtResource("18_iugvy")
+
+[node name="suspect3" parent="." instance=ExtResource("15_6jx1q")]
+position = Vector2(9288, 4631)
+suspect_name = "Roman"
+suspect_texture = ExtResource("17_nl5fi")
+
+[node name="suspect4" parent="." instance=ExtResource("15_6jx1q")]
+position = Vector2(9383, 4632)
+suspect_name = "Victoria"
+suspect_texture = ExtResource("19_luevi")
+
+[node name="suspect5" parent="." instance=ExtResource("15_6jx1q")]
+position = Vector2(9478, 4631)
+suspect_name = "Mr. Brookesia"
+
 [node name="Player_Character" parent="." instance=ExtResource("2_2euac")]
-position = Vector2(9706, 4628)
+position = Vector2(9720, 4615)
 
 [node name="file_ui" parent="." instance=ExtResource("6_ynhaw")]
+
+[node name="music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_skkxs")
+autoplay = true

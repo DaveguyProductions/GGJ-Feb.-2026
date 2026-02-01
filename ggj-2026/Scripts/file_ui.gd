@@ -33,3 +33,4 @@ func _on_button_right_pressed() -> void:
 
 func _on_close_pressed() -> void:
 	hide()
+	globals.read_files = true

@@ -23,7 +23,7 @@ func _ready() -> void:
 		elif suspect_name == "Victoria Verrat":
 			$timeline.text = suspect_data["timeline_victoria"]
 			$notes.text = suspect_data["notes_victoria"]
-		elif suspect_name == "Mr. Brookesia":
+		elif suspect_name == "Mr.Brookesia":
 			$timeline.text = suspect_data["timeline_b"]
 			$notes.text = suspect_data["notes_b"]
 	else:

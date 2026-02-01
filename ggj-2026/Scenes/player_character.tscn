@@ -1,7 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://mlhtfypk8xew"]
+[gd_scene load_steps=10 format=3 uid="uid://mlhtfypk8xew"]
 
 [ext_resource type="Script" uid="uid://2fxwteimhfbc" path="res://Scripts/player_character.gd" id="1_cmdk4"]
-[ext_resource type="Texture2D" uid="uid://doxhqlep25o1" path="res://icon.svg" id="1_qcwfp"]
+[ext_resource type="Texture2D" uid="uid://clstnd32378k4" path="res://Assets/art/player.webp" id="2_wko77"]
+[ext_resource type="Texture2D" uid="uid://b1njhjvaxaf3v" path="res://Assets/art/white mask.webp" id="3_ajo0r"]
+[ext_resource type="Texture2D" uid="uid://bnokhiltk4x3q" path="res://Assets/art/speech_bubble.png" id="3_wko77"]
+[ext_resource type="Texture2D" uid="uid://wlrrd51sb7be" path="res://Assets/art/black_mask.webp" id="4_flf3p"]
+[ext_resource type="FontFile" uid="uid://b52chdl5ratcq" path="res://Assets/fonts/monogram.ttf" id="4_pb3n0"]
+[ext_resource type="Texture2D" uid="uid://ba8actvtxvqr5" path="res://Assets/art/yinyang mask.webp" id="5_fcng2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cmdk4"]
 size = Vector2(129, 128)
@@ -17,7 +22,10 @@ script = ExtResource("1_cmdk4")
 shape = SubResource("RectangleShape2D_cmdk4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_qcwfp")
+texture_filter = 1
+position = Vector2(-6.666662, -9.333333)
+scale = Vector2(4.055556, 3.1666665)
+texture = ExtResource("2_wko77")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.7, 0.7)
@@ -25,8 +33,63 @@ limit_left = 7921
 limit_top = 0
 limit_bottom = 4850
 
+[node name="dash" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1.2715658e-06, -37.33334)
+scale = Vector2(2.2777784, 1.9444447)
+texture = ExtResource("3_ajo0r")
+
+[node name="double_jump" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(2.6666675, -37.33334)
+scale = Vector2(2.1111114, 1.8888893)
+texture = ExtResource("4_flf3p")
+
+[node name="tp" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(2.6666675, -37.333336)
+scale = Vector2(2.2222228, 1.9444447)
+texture = ExtResource("5_fcng2")
+
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(1.42858, 1.42857)
 shape = SubResource("RectangleShape2D_ip207")
+
+[node name="speech_bubble" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(413.3333, -253.3333)
+scale = Vector2(7.5416665, 5.708334)
+texture = ExtResource("3_wko77")
+
+[node name="speech_text" type="RichTextLabel" parent="."]
+visible = false
+clip_contents = false
+offset_left = 205.33334
+offset_top = -413.33334
+offset_right = 650.6667
+offset_bottom = -266.6667
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("4_pb3n0")
+theme_override_font_sizes/normal_font_size = 60
+
+[node name="speech_text2" type="RichTextLabel" parent="."]
+visible = false
+clip_contents = false
+offset_left = 205.33334
+offset_top = -413.33334
+offset_right = 650.6667
+offset_bottom = -266.6667
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("4_pb3n0")
+theme_override_font_sizes/normal_font_size = 80
+horizontal_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
