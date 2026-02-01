@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://mlhtfypk8xew"]
 
-[ext_resource type="Script" path="res://Scripts/player_character.gd" id="1_cmdk4"]
-[ext_resource type="Texture2D" uid="uid://cacdjtmf065r4" path="res://icon.svg" id="1_qcwfp"]
+[ext_resource type="Script" uid="uid://2fxwteimhfbc" path="res://Scripts/player_character.gd" id="1_cmdk4"]
+[ext_resource type="Texture2D" uid="uid://doxhqlep25o1" path="res://icon.svg" id="1_qcwfp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cmdk4"]
 size = Vector2(129, 128)
@@ -14,7 +14,6 @@ scale = Vector2(0.375, 0.375)
 script = ExtResource("1_cmdk4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_cmdk4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -22,11 +21,12 @@ texture = ExtResource("1_qcwfp")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.7, 0.7)
-limit_bottom = 850
+limit_left = 7921
+limit_top = 0
+limit_bottom = 4850
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(1.42858, 1.42857)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_ip207")
