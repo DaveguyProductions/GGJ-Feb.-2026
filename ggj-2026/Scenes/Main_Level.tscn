@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cvvc86qkplwxo"]
+[gd_scene load_steps=25 format=3 uid="uid://cvvc86qkplwxo"]
 
 [ext_resource type="PackedScene" uid="uid://map" path="res://map/Map.tscn" id="1_02ptc"]
 [ext_resource type="PackedScene" uid="uid://mlhtfypk8xew" path="res://Scenes/player_character.tscn" id="2_2euac"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://c0r73plriilk3" path="res://Scenes/suspects.tscn" id="15_6jx1q"]
 [ext_resource type="AudioStream" uid="uid://st7u5c7g6ov1" path="res://sounds/Level_Song.mp3" id="15_skkxs"]
 [ext_resource type="Texture2D" uid="uid://ba7weyqholm7i" path="res://Assets/art/roman_sprite.webp" id="17_nl5fi"]
+[ext_resource type="Texture2D" uid="uid://bwg5sue6sgh6m" path="res://Assets/art/sprite_marilyn.webp" id="18_43rp5"]
 [ext_resource type="Texture2D" uid="uid://i433lm3k4opd" path="res://Assets/art/sprite_serrano.webp" id="18_iugvy"]
 [ext_resource type="Texture2D" uid="uid://cmmvjfyy0nd34" path="res://Assets/art/sprite_victoria.webp" id="19_luevi"]
 
@@ -327,6 +328,7 @@ position = Vector2(9840, 4629)
 [node name="suspect" parent="." instance=ExtResource("15_6jx1q")]
 position = Vector2(9102, 4631)
 suspect_name = "Marilyn"
+suspect_texture = ExtResource("18_43rp5")
 
 [node name="suspect2" parent="." instance=ExtResource("15_6jx1q")]
 position = Vector2(9195, 4631)
