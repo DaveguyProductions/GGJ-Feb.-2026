@@ -96,5 +96,13 @@ func _physics_process(delta: float) -> void:
 			curr_mask = mask_list[list_position + 1]
 			mask_just_switched = true
 			print(curr_mask)
+			
+	# Handle Camera when in the attic
+	if self.position.y < 1500:
+		$Camera2D.limit_left = 7921
+		$Camera2D.limit_right = 11184
+	if self.position.y > 1500:
+		$Camera2D.limit_right = 18672
+		$Camera2D.limit_left = 0
 
 	move_and_slide()
