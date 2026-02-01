@@ -13,7 +13,7 @@ config_version=5
 config/name="GGJ 2026"
 run/main_scene="uid://dt4lu0u0rkdkm"
 config/features=PackedStringArray("4.5", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://c278uuktvjlqr"
 
 [autoload]
 
@@ -21,6 +21,7 @@ globals="*res://Scripts/globals.gd"
 
 [display]
 
+window/size/mode=3
 window/stretch/mode="canvas_items"
 
 [input]
