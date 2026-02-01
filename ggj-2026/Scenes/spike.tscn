@@ -8,7 +8,6 @@ size = Vector2(50, 50)
 [node name="spike" type="Area2D" groups=["spike"]]
 
 [node name="spike_collider" type="CollisionShape2D" parent="."]
-position = Vector2(26, 26)
 shape = SubResource("RectangleShape2D_bjemy")
 
 [node name="spike_sprite" type="Sprite2D" parent="spike_collider"]
