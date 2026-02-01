@@ -1,9 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://dy8xkygce0jt3"]
+[gd_scene load_steps=5 format=3 uid="uid://dy8xkygce0jt3"]
+
+[ext_resource type="Texture2D" uid="uid://cjk2a2p13mhmo" path="res://Assets/art/unclaimed flag.png" id="1_2cwi7"]
+[ext_resource type="Script" uid="uid://dd03f43p7oibd" path="res://Scripts/checkpoint.gd" id="1_e75gc"]
+[ext_resource type="Texture2D" uid="uid://dak1r6uhf0311" path="res://Assets/art/claimed flag.png" id="2_e75gc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jkya8"]
 size = Vector2(50, 50)
 
-[node name="checkpoint" type="Area2D"]
+[node name="checkpoint" type="Area2D" groups=["checkpoints"]]
+script = ExtResource("1_e75gc")
 
 [node name="checkpoint_collider" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_jkya8")
+
+[node name="unclaimed" type="Sprite2D" parent="."]
+texture = ExtResource("1_2cwi7")
+
+[node name="claimed" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_e75gc")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

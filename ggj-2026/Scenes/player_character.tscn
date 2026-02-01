@@ -9,7 +9,7 @@ size = Vector2(129, 128)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ip207"]
 size = Vector2(128.571, 128.571)
 
-[node name="Player_Character" type="CharacterBody2D"]
+[node name="Player_Character" type="CharacterBody2D" groups=["player"]]
 scale = Vector2(0.375, 0.375)
 script = ExtResource("1_cmdk4")
 

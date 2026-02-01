@@ -1,0 +1,57 @@
+[gd_scene load_steps=4 format=3 uid="uid://rl6t6fdt15ff"]
+
+[ext_resource type="Texture2D" uid="uid://dd11lg3qoxad3" path="res://Assets/art/folder.png" id="1_aqjjd"]
+[ext_resource type="Script" uid="uid://bwpjaud7lemqd" path="res://Scripts/info_folder.gd" id="2_2pjx7"]
+[ext_resource type="FontFile" uid="uid://b52chdl5ratcq" path="res://Assets/fonts/monogram.ttf" id="4_cugup"]
+
+[node name="info_folder" type="Sprite2D"]
+texture = ExtResource("1_aqjjd")
+script = ExtResource("2_2pjx7")
+
+[node name="photo_frame" type="ColorRect" parent="."]
+offset_left = -191.0
+offset_top = -155.0
+offset_right = -71.0
+offset_bottom = -35.0
+color = Color(0.68307734, 0.6830774, 0.68307734, 1)
+
+[node name="photo_bg" type="ColorRect" parent="photo_frame"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 115.0
+offset_bottom = 113.0
+color = Color(0, 0, 0, 1)
+
+[node name="suspect" type="Sprite2D" parent="photo_frame/photo_bg"]
+position = Vector2(55, 53.5)
+scale = Vector2(1.1458334, 1.1354166)
+
+[node name="timeline" type="RichTextLabel" parent="."]
+offset_left = 46.0
+offset_top = -141.0
+offset_right = 215.0
+offset_bottom = 177.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("4_cugup")
+theme_override_font_sizes/normal_font_size = 20
+
+[node name="timeline_label" type="RichTextLabel" parent="."]
+offset_left = 86.0
+offset_top = -168.0
+offset_right = 180.0
+offset_bottom = -140.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("4_cugup")
+theme_override_font_sizes/normal_font_size = 30
+text = "Timeline"
+
+[node name="name" type="RichTextLabel" parent="."]
+offset_left = -216.0
+offset_top = -27.0
+offset_right = -42.0
+offset_bottom = 1.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("4_cugup")
+theme_override_font_sizes/normal_font_size = 30
+horizontal_alignment = 1

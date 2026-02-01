@@ -1,12 +1,17 @@
 extends Area2D
 
-@export var mask_id: int
-@export var texture_input: Texture
-
+@export var evidence_texture: Texture
+@export var evidence_id: int
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$mask_texture.Texture = texture_input
+	pass # Replace with function body.
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		pass
